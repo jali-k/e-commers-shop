@@ -13,6 +13,7 @@ public class ApplicationConfig {
         return new MyFirstClass("First Bean");
     }
     @Bean(name = "second")
+    @Primary
     public MyFirstClass mySecondBean (){
         return new MyFirstClass("Second Bean");
     }

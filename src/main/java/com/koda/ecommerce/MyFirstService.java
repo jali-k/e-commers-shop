@@ -10,7 +10,7 @@ public class MyFirstService {
 
     private final MyFirstClass myFirstClass;
 
-    @Autowired
+
     public MyFirstService(
             @Qualifier("second") MyFirstClass myFirstClass
     ) {
