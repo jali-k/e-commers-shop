@@ -1,11 +1,9 @@
 package com.koda.ecommerce;
 
-import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.core.env.Environment;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RestController;
 
 //@Service
 //public class MyFirstService {
@@ -27,18 +25,26 @@ import org.springframework.web.bind.annotation.RestController;
 //}
 
 @Service
+@PropertySource("classpath:custom.properties")
 public class MyFirstService {
     // Injecting the MyFirstClass bean with constructor injection
 
     private final MyFirstClass myFirstClass;
+
+
+
+    @Value("${my.prop}")
+    private String CustomProperty;
+
+    public String getCustomProperty() {
+        return CustomProperty;
+    }
 
 //    @Autowired
 //    public void setEnvironment(Environment environment) {
 //        this.environment = environment;
 //    }
 
-    @Resource
-    private Environment environment;
 
     @Autowired
     public MyFirstService(
@@ -52,9 +58,7 @@ public class MyFirstService {
         return "Once upon a time, there was a class called MyFirstClass. It said: "+ myFirstClass.sayHello();
     }
 
-    public String getJavaVersion(){
-        return environment.getProperty("java.version");
-    }
+
 
 
 

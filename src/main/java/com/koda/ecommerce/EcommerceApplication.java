@@ -11,7 +11,9 @@ public class EcommerceApplication {
 
 		MyFirstService myFirstService = ctx.getBean(MyFirstService.class);
 //		System.out.println(myFirstService.tellStory());
-		System.out.println(myFirstService.getJavaVersion());
+
+		System.out.println(myFirstService.getCustomProperty());
+
 	}
 
 
