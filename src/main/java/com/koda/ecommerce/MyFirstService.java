@@ -33,9 +33,16 @@ public class MyFirstService {
 
 
 
+
+    @Value("${my.custom.property}")
+    private String myProperty;
     @Value("${my.prop}")
     private String CustomProperty;
 
+
+    public String getMyProperty() {
+        return myProperty;
+    }
     public String getCustomProperty() {
         return CustomProperty;
     }

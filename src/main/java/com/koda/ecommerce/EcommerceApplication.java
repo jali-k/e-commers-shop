@@ -13,6 +13,7 @@ public class EcommerceApplication {
 //		System.out.println(myFirstService.tellStory());
 
 		System.out.println(myFirstService.getCustomProperty());
+		System.out.println(myFirstService.getMyProperty());
 
 	}
 
