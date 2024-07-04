@@ -7,13 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class EcommerceApplication {
 
 	public static void main(String[] args) {
-		var ctx = SpringApplication.run(EcommerceApplication.class, args);
+		SpringApplication.run(EcommerceApplication.class, args);
 
-		MyFirstService myFirstService = ctx.getBean(MyFirstService.class);
-//		System.out.println(myFirstService.tellStory());
-
-		System.out.println(myFirstService.getCustomProperty());
-		System.out.println(myFirstService.getMyProperty());
 
 	}
 
