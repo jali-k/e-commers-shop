@@ -20,5 +20,10 @@ public class MyFirstController {
         return "You just called the POST method at '/hello'!\n: " + order.toString();
     }
 
+    @PostMapping("/order-record")
+    public String helloPost(@RequestBody OrderRecord order){
+        return "You just called the POST method with order record at /orderRecord!\n: " + order.toString();
+    }
+
 }
 
