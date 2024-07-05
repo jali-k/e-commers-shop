@@ -25,5 +25,10 @@ public class MyFirstController {
         return "You just called the POST method with order record at /orderRecord!\n: " + order.toString();
     }
 
+    @GetMapping("/hello/{my-name}")
+    public String helloName(@PathVariable("my-name") String name){
+        return "Hello, " + name + "!";
+    }
+
 }
 
