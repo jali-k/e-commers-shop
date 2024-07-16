@@ -19,6 +19,13 @@ public class School {
     @OneToMany(mappedBy = "school")
     private List<Student> students;
 
+    public School(String name) {
+        this.name = name;
+    }
+
+    public School() {
+    }
+
     public void setStudents(List<Student> students) {
         this.students = students;
     }
@@ -43,13 +50,6 @@ public class School {
         this.name = name;
     }
 
-
-    public School(String name) {
-        this.name = name;
-    }
-
-    public School() {
-    }
 }
 
 
