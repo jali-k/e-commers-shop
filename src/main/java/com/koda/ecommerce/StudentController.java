@@ -1,15 +1,16 @@
 package com.koda.ecommerce;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-public class MyFirstController {
+public class StudentController {
 
     private final StudentRepository repository;
 
-    public MyFirstController(StudentRepository repository) {
+    public StudentController(StudentRepository repository) {
         this.repository = repository;
     }
 
@@ -27,6 +28,14 @@ public class MyFirstController {
     public Student getStudent(@PathVariable int student_id) {
         return repository.findById(student_id).orElse(new Student());
     }
+
+    @DeleteMapping("/students/{student_id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteStudent(@PathVariable int student_id){
+        repository.deleteById(student_id);
+    }
+
+    
 
     @GetMapping("/students/search/{student_name}")
     public List<Student> getStudentByName(@PathVariable String student_name) {

@@ -1,9 +1,7 @@
 package com.koda.ecommerce;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 
 @Entity
 public class Student {
@@ -16,6 +14,31 @@ public class Student {
     @Column(unique = true)
     private String email;
     private int age;
+
+    @ManyToOne
+    @JoinColumn(name = "school_id")
+    @JsonBackReference // To prevent infinite recursion between School and Student, making the student child. No need to serialize the school field, the parent will take care of it
+    private School school; // Should be exactly same as the OneToMany field in School.java
+
+    @OneToOne(mappedBy = "student", cascade = CascadeType.ALL)
+    private StudentProfile studentProfile;
+
+
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
+    }
+
+    public StudentProfile getStudentProfile() {
+        return studentProfile;
+    }
+
+    public void setStudentProfile(StudentProfile studentProfile) {
+        this.studentProfile = studentProfile;
+    }
 
     public Student(String firstName, String lastName, String email, int age) {
         this.firstName = firstName;
