@@ -1,5 +1,6 @@
 package com.koda.ecommerce;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -17,6 +18,7 @@ public class School {
     private String name;
 
     @OneToMany(mappedBy = "school")
+    @JsonManagedReference // To prevent infinite recursion between School and Student, making the school parent
     private List<Student> students;
 
     public School(String name) {

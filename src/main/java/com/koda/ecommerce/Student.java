@@ -1,5 +1,6 @@
 package com.koda.ecommerce;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -16,6 +17,7 @@ public class Student {
 
     @ManyToOne
     @JoinColumn(name = "school_id")
+    @JsonBackReference // To prevent infinite recursion between School and Student, making the student child. No need to serialize the school field, the parent will take care of it
     private School school; // Should be exactly same as the OneToMany field in School.java
 
     @OneToOne(mappedBy = "student", cascade = CascadeType.ALL)
