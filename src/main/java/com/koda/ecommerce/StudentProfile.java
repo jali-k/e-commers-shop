@@ -13,6 +13,23 @@ public class StudentProfile {
 
     private String bio;
 
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
     public StudentProfile(String bio) {
         this.bio = bio;
     }
