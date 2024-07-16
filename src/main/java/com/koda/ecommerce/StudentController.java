@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class MyFirstController {
+public class StudentController {
 
     private final StudentRepository repository;
 
-    public MyFirstController(StudentRepository repository) {
+    public StudentController(StudentRepository repository) {
         this.repository = repository;
     }
 
