@@ -14,6 +14,30 @@ public class Student {
     private String email;
     private int age;
 
+    @ManyToOne
+    @JoinColumn(name = "school_id")
+    private School school; // Should be exactly same as the OneToMany field in School.java
+
+    @OneToOne(mappedBy = "student", cascade = CascadeType.ALL)
+    private StudentProfile studentProfile;
+
+
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
+    }
+
+    public StudentProfile getStudentProfile() {
+        return studentProfile;
+    }
+
+    public void setStudentProfile(StudentProfile studentProfile) {
+        this.studentProfile = studentProfile;
+    }
+
     public Student(String firstName, String lastName, String email, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -24,9 +48,6 @@ public class Student {
     public Student() {
 
     }
-
-    @OneToOne(mappedBy = "student", cascade = CascadeType.ALL)
-    private StudentProfile studentProfile;
 
     public int getId() {
         return id;

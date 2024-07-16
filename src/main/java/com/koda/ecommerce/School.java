@@ -3,6 +3,9 @@ package com.koda.ecommerce;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+import java.util.List;
 
 @Entity
 public class School {
@@ -12,6 +15,17 @@ public class School {
     private Integer id;
 
     private String name;
+
+    @OneToMany(mappedBy = "school")
+    private List<Student> students;
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
 
     public Integer getId() {
         return id;
