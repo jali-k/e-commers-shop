@@ -1,9 +1,6 @@
 package com.koda.ecommerce;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Student {
@@ -27,6 +24,9 @@ public class Student {
     public Student() {
 
     }
+
+    @OneToOne(mappedBy = "student", cascade = CascadeType.ALL)
+    private StudentProfile studentProfile;
 
     public int getId() {
         return id;
